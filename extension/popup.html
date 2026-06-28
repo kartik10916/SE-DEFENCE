@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SE Defense Assistant</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="popup-wrapper">
+    <!-- Header -->
+    <header class="popup-header">
+      <div class="popup-logo">🛡️</div>
+      <div>
+        <h1 class="popup-title">SE Defense</h1>
+        <p class="popup-subtitle">Threat Detector</p>
+      </div>
+      <div class="status-indicator" id="status-dot" title="Engine status"></div>
+    </header>
+
+    <!-- Scan Current Page button -->
+    <div class="scan-section">
+      <button id="scan-page-btn" class="btn-primary" type="button">
+        <span id="scan-icon">🔍</span>
+        <span id="scan-label">Scan This Page</span>
+      </button>
+    </div>
+
+    <!-- Result panel -->
+    <div id="result-panel" class="result-panel" hidden>
+      <div class="result-score-row">
+        <div class="result-circle" id="score-circle">
+          <span id="score-value">0</span>
+          <span class="score-denom">/100</span>
+        </div>
+        <div class="result-meta">
+          <div class="result-level" id="result-level">—</div>
+          <div class="result-summary" id="result-summary">—</div>
+        </div>
+      </div>
+
+      <!-- Attack types -->
+      <div id="attack-types-container" class="attack-types-container"></div>
+
+      <!-- Top reasons -->
+      <div class="reasons-section">
+        <div class="reasons-title">Top Findings</div>
+        <ul id="reasons-list" class="reasons-list"></ul>
+      </div>
+    </div>
+
+    <!-- Error panel -->
+    <div id="error-panel" class="error-panel" hidden>
+      <span>❌</span> <span id="error-msg">Analysis failed.</span>
+    </div>
+
+    <!-- Empty state -->
+    <div id="empty-state" class="empty-state">
+      <div class="empty-icon">🛡️</div>
+      <p>Click "Scan This Page" to detect social engineering threats on the current tab.</p>
+    </div>
+
+    <!-- Custom text input -->
+    <details class="custom-section">
+      <summary class="custom-toggle">✏️ Analyze custom text</summary>
+      <div class="custom-body">
+        <textarea
+          id="custom-text"
+          class="custom-textarea"
+          placeholder="Paste any suspicious message here…"
+          rows="4"
+          aria-label="Custom text to analyze"
+        ></textarea>
+        <button id="analyze-custom-btn" class="btn-secondary" type="button">Analyze</button>
+      </div>
+    </details>
+
+    <footer class="popup-footer">
+      <a id="open-webapp" href="#" class="footer-link">Open full app ↗</a>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

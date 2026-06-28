@@ -1,0 +1,19 @@
+{
+  "description": "High-confidence phishing and social engineering keywords",
+  "words": [
+    "phishing", "scam", "hack", "malware", "ransomware", "spyware", "trojan",
+    "virus", "keylogger", "exploit", "breach", "compromised", "hijack",
+    "stolen", "identity theft", "fake", "impersonate", "spoofed", "forged",
+    "click here", "click now", "verify now", "verify account", "confirm identity",
+    "validate your", "update your account", "account suspended", "account locked",
+    "account blocked", "reactivate", "re-verify", "login required",
+    "verify your email", "confirm your email", "confirm your password",
+    "reset password", "billing information", "credit card details",
+    "social security", "bank account", "wire transfer", "gift card",
+    "bitcoin payment", "cryptocurrency", "send money", "transfer funds",
+    "unclaimed package", "parcel held", "delivery failed", "invoice attached",
+    "free prize", "you have won", "claim your reward", "lottery winner",
+    "selected user", "lucky draw", "inheritance", "million dollars",
+    "nigerian prince", "advance fee", "refund processing"
+  ]
+}

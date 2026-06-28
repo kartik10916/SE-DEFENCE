@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "SE Defense Assistant",
+  "short_name": "SE Defense",
+  "version": "1.0.0",
+  "description": "Detects phishing, social engineering, and manipulation attempts on web pages in real-time.",
+  "author": "SE Defense Team",
+
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "notifications",
+    "contextMenus"
+  ],
+
+  "host_permissions": [
+    "http://localhost:5000/*",
+    "https://*/*"
+  ],
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_title":  "SE Defense Assistant",
+    "default_icon": {
+      "16":  "icons/16.png",
+      "48":  "icons/48.png",
+      "128": "icons/128.png"
+    }
+  },
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js":      ["content.js"],
+      "run_at":  "document_idle"
+    }
+  ],
+
+  "icons": {
+    "16":  "icons/16.png",
+    "48":  "icons/48.png",
+    "128": "icons/128.png"
+  },
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

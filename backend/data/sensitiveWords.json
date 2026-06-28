@@ -1,0 +1,18 @@
+{
+  "description": "Sensitive personal and financial information request keywords",
+  "words": [
+    "password", "passcode", "passphrase", "pin", "secret question",
+    "security code", "one-time password", "OTP", "verification code",
+    "authentication code", "2FA code", "two-factor",
+    "username", "login credentials", "account credentials",
+    "credit card", "card number", "CVV", "expiry date", "card details",
+    "bank account", "account number", "routing number", "sort code",
+    "IBAN", "SWIFT code", "wire transfer details",
+    "social security number", "SSN", "national ID", "passport number",
+    "driver's license", "date of birth", "mother's maiden name",
+    "home address", "phone number", "email address",
+    "income", "salary", "tax return", "tax ID", "EIN",
+    "health insurance", "medical record", "patient ID",
+    "private key", "seed phrase", "wallet address", "crypto wallet"
+  ]
+}

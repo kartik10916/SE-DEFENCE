@@ -1,0 +1,17 @@
+{
+  "description": "Urgency and time-pressure manipulation keywords",
+  "words": [
+    "urgent", "immediately", "right now", "asap", "instant", "instant action",
+    "act now", "hurry", "quick", "quickly", "fast", "rapidly",
+    "deadline", "expires", "expiring", "expiration", "last chance",
+    "final notice", "final warning", "final reminder", "final opportunity",
+    "limited time", "time sensitive", "time critical", "time-limited",
+    "respond within", "respond immediately", "within 24 hours", "within 48 hours",
+    "by end of day", "by tomorrow", "do not delay", "do not wait",
+    "no time to waste", "before it's too late", "last opportunity",
+    "account will be closed", "access will be revoked", "service will be terminated",
+    "failure to respond", "failure to act", "must act", "you must act",
+    "action required", "attention required", "immediate response required",
+    "do not ignore", "please respond", "response needed"
+  ]
+}
