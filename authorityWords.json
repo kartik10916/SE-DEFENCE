@@ -1,0 +1,17 @@
+{
+  "description": "Authority and official entity impersonation keywords",
+  "words": [
+    "IRS", "FBI", "CIA", "NSA", "Interpol", "government", "federal",
+    "official", "department", "ministry", "agency", "administration",
+    "enforcement", "investigation", "warrant", "subpoena", "legal notice",
+    "court order", "law enforcement", "police", "sheriff",
+    "Microsoft", "Apple", "Google", "Amazon", "PayPal", "Netflix",
+    "Facebook", "Instagram", "Twitter", "LinkedIn", "WhatsApp",
+    "bank", "financial institution", "credit union", "treasury",
+    "tax authority", "revenue service", "customs",
+    "your account team", "security team", "fraud prevention",
+    "compliance department", "risk team", "verification department",
+    "technical support", "IT department", "helpdesk", "administrator",
+    "CEO", "CFO", "executive", "management", "director"
+  ]
+}
