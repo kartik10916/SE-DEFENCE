@@ -130,7 +130,7 @@ app.include_router(analyze_router, prefix="/api")
 
 if __name__ == "__main__":
     import uvicorn
-    print(f"\n🛡️  SE Defense API v{VERSION} running on http://localhost:{config.PORT}")
+    print(f"\n[OK] SE Defense API v{VERSION} running on http://localhost:{config.PORT}")
     print(f"   Environment: {config.NODE_ENV}")
     print(f"   Health:  http://localhost:{config.PORT}/health")
     print(f"   Stats:   http://localhost:{config.PORT}/api/stats\n")
