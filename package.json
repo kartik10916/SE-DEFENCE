@@ -4,10 +4,10 @@
   "description": "AI-powered social engineering threat detection tool",
   "private": true,
   "scripts": {
-    "start:backend": "cd backend && npm start",
+    "start:backend": "cd backend && python app.py",
     "start:frontend": "cd frontend && npm start",
     "dev": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
-    "install:all": "cd backend && npm install && cd ../frontend && npm install"
+    "install:all": "pip install -r backend/requirements.txt && cd frontend && npm install"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"

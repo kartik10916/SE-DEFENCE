@@ -26,8 +26,8 @@ Social-Engineering-Defense-Assistant/
 ### Backend Setup
 ```bash
 cd backend
-npm install
-npm start
+pip install -r requirements.txt
+python app.py
 ```
 Server runs at `http://localhost:5000`
 
@@ -74,10 +74,10 @@ App runs at `http://localhost:3000`
 
 ## 🛠️ Tech Stack
 
-- **Backend:** Node.js, Express, Natural (NLP)
+- **Backend:** Python, FastAPI, Uvicorn
 - **Frontend:** React, Chart.js, Axios
 - **Extension:** Chrome Extensions API (Manifest V3)
-- **Future:** Python, scikit-learn, TensorFlow
+- **Future:** scikit-learn, TensorFlow (ML model & analytics roadmap)
 
 ---
 
