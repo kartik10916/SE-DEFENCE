@@ -20,7 +20,7 @@ Social-Engineering-Defense-Assistant/
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js >= 18
+- Node.js >= 17
 - npm >= 9
 
 ### Backend Setup
