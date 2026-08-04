@@ -10,73 +10,141 @@
   <div class="popup-wrapper">
     <!-- Header -->
     <header class="popup-header">
-      <div class="popup-logo">🛡️</div>
-      <div>
-        <h1 class="popup-title">SE Defense</h1>
-        <p class="popup-subtitle">Threat Detector</p>
+      <div class="header-logo-container">
+        <span class="logo-shield">🛡️</span>
+        <div>
+          <h1 class="popup-title">SE Defense</h1>
+          <p class="popup-subtitle">AI Threat Scanner</p>
+        </div>
       </div>
-      <div class="status-indicator" id="status-dot" title="Engine status"></div>
+      <div class="connection-status" id="connection-status" title="Checking backend connection...">
+        <div class="status-dot offline" id="status-dot"></div>
+        <span class="status-text" id="status-text">Connecting</span>
+      </div>
     </header>
 
-    <!-- Scan Current Page button -->
-    <div class="scan-section">
-      <button id="scan-page-btn" class="btn-primary" type="button">
-        <span id="scan-icon">🔍</span>
-        <span id="scan-label">Scan This Page</span>
+    <!-- Tab Navigation -->
+    <div class="tabs-nav">
+      <button class="tab-btn active" id="btn-tab-scan" data-tab="tab-scan">
+        <span>🔍</span> Scan Tab
+      </button>
+      <button class="tab-btn" id="btn-tab-custom" data-tab="tab-custom">
+        <span>✏️</span> Custom Text
+      </button>
+      <button class="tab-btn" id="btn-tab-history" data-tab="tab-history">
+        <span>📜</span> History
       </button>
     </div>
 
-    <!-- Result panel -->
-    <div id="result-panel" class="result-panel" hidden>
-      <div class="result-score-row">
-        <div class="result-circle" id="score-circle">
-          <span id="score-value">0</span>
-          <span class="score-denom">/100</span>
+    <!-- MAIN BODY PANELS -->
+    <main class="popup-main">
+      
+      <!-- TAB 1: SCAN ACTIVE PAGE -->
+      <section class="tab-panel active" id="tab-scan">
+        <div class="scan-action-area">
+          <p class="scan-instructions">Analyze the current tab's content for social engineering threats.</p>
+          <button id="scan-page-btn" class="btn-primary" type="button">
+            <span id="scan-icon">🔍</span>
+            <span id="scan-label">Scan Current Page</span>
+          </button>
         </div>
-        <div class="result-meta">
-          <div class="result-level" id="result-level">—</div>
-          <div class="result-summary" id="result-summary">—</div>
+
+        <!-- Result Container -->
+        <div id="result-panel" class="result-panel" hidden>
+          <div class="result-card">
+            <!-- Circular Gauge -->
+            <div class="score-gauge-container">
+              <div class="score-gauge">
+                <svg class="score-svg" viewBox="0 0 100 100">
+                  <circle class="score-bg-circle" cx="50" cy="50" r="44"></circle>
+                  <circle class="score-bar-circle" id="score-bar" cx="50" cy="50" r="44"></circle>
+                </svg>
+                <div class="score-value-container">
+                  <span id="score-value">0</span>
+                  <span class="score-denom">/100</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="result-meta">
+              <div class="result-level" id="result-level">—</div>
+              <div class="result-summary" id="result-summary">No active scans completed.</div>
+            </div>
+          </div>
+
+          <!-- Attack categories badges -->
+          <div class="panel-section">
+            <div class="section-header">Attack Vectors</div>
+            <div id="attack-types-container" class="attack-types-container"></div>
+          </div>
+
+          <!-- Top findings list -->
+          <div class="panel-section">
+            <div class="section-header">Top Findings</div>
+            <div class="findings-card">
+              <ul id="reasons-list" class="reasons-list"></ul>
+            </div>
+          </div>
         </div>
+
+        <!-- Empty state Scan Tab -->
+        <div id="scan-empty-state" class="empty-state">
+          <div class="empty-icon">🔎</div>
+          <p>Scan the webpage to detect phishing, pretexting, urgency manipulation, or coercive tone patterns.</p>
+        </div>
+      </section>
+
+      <!-- TAB 2: CUSTOM TEXT ANALYZER -->
+      <section class="tab-panel" id="tab-custom">
+        <div class="custom-analyzer-area">
+          <div class="textarea-container">
+            <textarea
+              id="custom-text"
+              class="custom-textarea"
+              placeholder="Paste suspicious email, message, or URL here..."
+              maxlength="10000"
+              rows="6"
+              aria-label="Custom text to analyze"
+            ></textarea>
+            <div class="textarea-footer">
+              <span id="char-counter" class="char-counter">0 / 10,000</span>
+            </div>
+          </div>
+          
+          <button id="analyze-custom-btn" class="btn-primary" type="button">
+            Analyze Input
+          </button>
+        </div>
+      </section>
+
+      <!-- TAB 3: LOCAL SCAN HISTORY -->
+      <section class="tab-panel" id="tab-history">
+        <div class="history-control-header">
+          <span class="history-title">Recent Scans</span>
+          <button id="clear-history-btn" class="btn-text" type="button" hidden>Clear All</button>
+        </div>
+        
+        <div id="history-empty-state" class="empty-state">
+          <div class="empty-icon">📜</div>
+          <p>No recent scans. Webpage scan history will appear here.</p>
+        </div>
+
+        <div class="history-list-container">
+          <ul id="history-list" class="history-list"></ul>
+        </div>
+      </section>
+
+      <!-- Global Error Notification -->
+      <div id="error-panel" class="error-panel" hidden>
+        <span class="error-icon">⚠️</span> 
+        <span id="error-msg">Failed to connect to detection engine.</span>
       </div>
 
-      <!-- Attack types -->
-      <div id="attack-types-container" class="attack-types-container"></div>
+    </main>
 
-      <!-- Top reasons -->
-      <div class="reasons-section">
-        <div class="reasons-title">Top Findings</div>
-        <ul id="reasons-list" class="reasons-list"></ul>
-      </div>
-    </div>
-
-    <!-- Error panel -->
-    <div id="error-panel" class="error-panel" hidden>
-      <span>❌</span> <span id="error-msg">Analysis failed.</span>
-    </div>
-
-    <!-- Empty state -->
-    <div id="empty-state" class="empty-state">
-      <div class="empty-icon">🛡️</div>
-      <p>Click "Scan This Page" to detect social engineering threats on the current tab.</p>
-    </div>
-
-    <!-- Custom text input -->
-    <details class="custom-section">
-      <summary class="custom-toggle">✏️ Analyze custom text</summary>
-      <div class="custom-body">
-        <textarea
-          id="custom-text"
-          class="custom-textarea"
-          placeholder="Paste any suspicious message here…"
-          rows="4"
-          aria-label="Custom text to analyze"
-        ></textarea>
-        <button id="analyze-custom-btn" class="btn-secondary" type="button">Analyze</button>
-      </div>
-    </details>
-
+    <!-- Footer -->
     <footer class="popup-footer">
-      <a id="open-webapp" href="#" class="footer-link">Open full app ↗</a>
+      <a id="open-webapp" href="#" class="footer-link">Full Dashboard ↗</a>
     </footer>
   </div>
 
